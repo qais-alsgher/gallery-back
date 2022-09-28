@@ -13,7 +13,8 @@ app.get('/', (req, res) => {
     res.status(200).send('server is up');
 })
 
-
+// use static image 
+app.use(express.static('Images'));
 
 const start = (port) => {
     app.listen(port, () => {
