@@ -14,7 +14,7 @@ app.get('/', (req, res) => {
 })
 
 // use static image 
-app.use(express.static('./Images'));
+app.use(express.static('Images'));
 
 const start = (port) => {
     app.listen(port, () => {
