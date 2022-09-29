@@ -17,6 +17,9 @@ const POSTGRES_URL = process.env.DATABASE_URL || 'postgres://localhost:5432/post
 
 const sequelize = new Sequelize(POSTGRES_URL, sequelizeOption);
 
+// const POSTGRES_URL = 'postgres://localhost:5432/postgres';
+// const sequelize = new Sequelize(POSTGRES_URL);
+
 db.sequelize = sequelize;
 db.gallary = require('./gallery')(sequelize, DataTypes);
 

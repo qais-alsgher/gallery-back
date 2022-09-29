@@ -2,9 +2,9 @@ const router = require('express').Router();
 const gallery = require('../models/index').db.gallary;
 const ubload = require('../middleware/gallery.controler');
 
-router.get('/allImge', getImage);
+router.get('/image', getImage);
 
-router.post('/addImge', ubload, addProduct);
+router.post('/image', ubload, addProduct);
 
 router.post('/ubload', ubload, (req, res) => {
     res.send({
@@ -13,7 +13,7 @@ router.post('/ubload', ubload, (req, res) => {
     })
 });
 
-router.delete('/deleteImage/:id', deleteImage);
+router.delete('/image/:id', deleteImage);
 
 
 async function getImage(req, res) {
