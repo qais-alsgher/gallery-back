@@ -1,6 +1,7 @@
 const router = require('express').Router();
 const gallery = require('../models/index').db.gallary;
 const ubload = require('../middleware/gallery.controler');
+const fs = require("fs");
 
 router.get('/image', getImage);
 
@@ -36,11 +37,11 @@ async function addProduct(req, res) {
 
 
 async function deleteImage(req, res) {
-
     const id = req.params.id;
-    const imageDeleated = await gallery.destroy({ where: { id: id } });
-    res.status(200).json(imageDeleated);
-
+    const image = await gallery.findOne({ where: { id: id } });
+    fs.unlinkSync(image.image);
+    await gallery.destroy({ where: { id: id } });
+    res.status(200).json({ message: "image deleted" });
 };
 
 
